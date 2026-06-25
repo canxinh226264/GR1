@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WSN MARL + MERA-MST Visual Simulator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">GR1 Visual Simulation</p>
+        <h1>WSN MARL + MERA-MST</h1>
+      </div>
+      <div class="status-strip">
+        <span id="roundBadge">Round 0</span>
+        <span id="modeBadge">Paused</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="controls">
+        <section>
+          <h2>Tham số</h2>
+          <label>
+            Số node
+            <input id="nodeCount" type="number" min="20" max="160" value="80" />
+          </label>
+          <label>
+            Số round tối đa
+            <input id="maxRounds" type="number" min="20" max="400" value="120" />
+          </label>
+          <label>
+            Communication range
+            <input id="commRange" type="range" min="10" max="45" value="24" />
+            <output id="commRangeOut">24</output>
+          </label>
+          <label>
+            λ - ưu tiên MERA
+            <input id="lambdaPriority" type="range" min="0" max="1" step="0.01" value="0.85" />
+            <output id="lambdaOut">0.85</output>
+          </label>
+          <label>
+            γ - reward tương lai
+            <input id="gamma" type="range" min="0" max="0.99" step="0.01" value="0.88" />
+            <output id="gammaOut">0.88</output>
+          </label>
+          <label>
+            Seed
+            <input id="seed" type="number" value="42" />
+          </label>
+        </section>
+
+        <section>
+          <h2>Điều khiển</h2>
+          <div class="button-row">
+            <button id="resetBtn">Reset</button>
+            <button id="stepBtn">Next round</button>
+          </div>
+          <div class="button-row">
+            <button id="prevRoundBtn">Prev round</button>
+            <button id="playBtn">Play</button>
+          </div>
+          <div class="button-row">
+            <button id="pauseBtn">Pause</button>
+          </div>
+          <label>
+            Tốc độ
+            <input id="speed" type="range" min="80" max="1200" value="420" />
+          </label>
+        </section>
+
+        <section class="legend">
+          <h2>Chú thích</h2>
+          <p><span class="dot green"></span> SoC cao</p>
+          <p><span class="dot amber"></span> SoC trung bình</p>
+          <p><span class="dot red"></span> SoC thấp</p>
+          <p><span class="dot black"></span> Node chết</p>
+          <p><span class="line route"></span> Route round hiện tại</p>
+          <p><span class="line fused"></span> Cạnh MERA-MST được ưu tiên</p>
+        </section>
+      </aside>
+
+      <section class="stage">
+        <div class="canvas-wrap">
+          <canvas id="networkCanvas" width="920" height="620"></canvas>
+          <div id="nodeTooltip" class="node-tooltip" hidden></div>
+        </div>
+        <div class="metrics-grid">
+          <article>
+            <span>Active nodes</span>
+            <strong id="activeNodes">-</strong>
+          </article>
+          <article>
+            <span>Avg SoC</span>
+            <strong id="avgSoc">-</strong>
+          </article>
+          <article>
+            <span>SoC variance</span>
+            <strong id="socVariance">-</strong>
+          </article>
+          <article>
+            <span>Avg delay</span>
+            <strong id="avgDelay">-</strong>
+          </article>
+          <article>
+            <span>Delivered</span>
+            <strong id="delivered">-</strong>
+          </article>
+          <article>
+            <span>Dropped</span>
+            <strong id="dropped">-</strong>
+          </article>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <section>
+          <h2>Round log</h2>
+          <div id="roundLog" class="round-log"></div>
+        </section>
+        <section>
+          <h2>Biểu đồ nhanh</h2>
+          <canvas id="chartCanvas" width="430" height="260"></canvas>
+        </section>
+        <section>
+          <h2>Công thức đang dùng</h2>
+          <div class="formula">
+            <p><b>MERA:</b> w<sub>ij</sub> = 1 / (SoC<sub>j</sub> + ε)</p>
+            <p><b>MERA-MST:</b> w = λw<sub>MERA</sub> + (1-λ)w<sub>MST</sub></p>
+            <p><b>Q-update:</b> Q ← Q + α[R + γ max Q' - Q]</p>
+            <p><b>Queue:</b> Q<sub>i</sub>(t+1)=max(0,Q<sub>i</sub>+A<sub>i</sub>-S<sub>i</sub>)</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
