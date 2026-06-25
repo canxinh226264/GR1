@@ -1,41 +1,61 @@
-# GR1
+#GR1
 WSN MARL + MERA-MST Visual Simulator
 ====================================
 
-Cach chay:
-  1. Mo file index.html bang Chrome/Edge.
-  2. Bam Reset de tao mang moi.
-  3. Bam Next round de quan sat tung round.
-  4. Bam Play/Pause neu muon chay tu dong.
-  5. Re chuot vao node de xem ID, trang thai, SoC, queue, degree, route va toa do 3D.
-  6. Nhan giu chuot trai tren topology roi keo de xoay mang 3D.
-  7. Bam Prev round de xem lai snapshot round truoc do.
+Cách chạy:
 
-Chuong trinh mo phong:
-  - tao node WSN ngau nhien;
-  - gan toa do 3D (x, y, z) cho tung node;
-  - tao graph ket noi theo communication range;
-  - chon transmitter theo SoC, vi tri va queue;
-  - tinh MERA weight dua tren SoC;
-  - tinh MST bang Kruskal;
-  - tao fused graph bang lambda;
-  - chon route bang Dijkstra tren fused MERA-MST cost co anh huong Q-learning;
-  - cap nhat queue, SoC, reward, delay;
-  - ve route cua round hien tai va metric theo thoi gian.
-  - hien thi tooltip node va cho phep xoay topology 3D bang chuot.
-  - moi lan Reset tu sinh seed moi de node phan bo ngau nhien khac nhau.
-  - luu snapshot tung round de xem lai trang thai route/node cua round truoc.
+Mở file index.html bằng Chrome/Edge.
 
-Y nghia tham so:
-  lambda:
-    Uu tien MERA. Lambda cao hon se tranh node pin yeu manh hon.
+Bấm Reset để tạo mạng mới.
 
-  gamma:
-    Discount factor cua Q-learning. Gamma cao hon nghia la coi trong reward tuong lai hon.
+Bấm Next round để quan sát từng round (vòng).
 
-  communication range:
-    Tam truyen truc tiep giua cac node. Range cao hon thi graph day hon.
+Bấm Play/Pause nếu muốn chạy tự động.
 
-Ghi chu:
-  Day la mo phong giao duc de quan sat co che tung round.
-  No khong phai mo phong tang vat ly/mang chi tiet nhu ns-3 hay OMNeT++.
+Rê chuột vào node (nút) để xem ID, trạng thái, SoC (dung lượng pin còn lại), queue (hàng đợi), degree (bậc của nút), route (tuyến đường) và tọa độ 3D.
+
+Nhấn giữ chuột trái trên topology (sơ đồ mạng) rồi kéo để xoay mạng 3D.
+
+Bấm Prev round để xem lại snapshot (ảnh chụp trạng thái) của round trước đó.
+
+Chương trình mô phỏng:
+
+Tạo các node WSN ngẫu nhiên;
+
+Gắn tọa độ 3D (x, y, z) cho từng node;
+
+Tạo graph (đồ thị) kết nối theo communication range (phạm vi truyền thông);
+
+Chọn transmitter (bộ phát) theo SoC, vị trí và queue;
+
+Tính MERA weight (trọng số MERA) dựa trên SoC;
+
+Tính MST (cây khung tối tiểu) bằng thuật toán Kruskal;
+
+Tạo fused graph (đồ thị hợp nhất) bằng tham số lambda;
+
+Chọn route bằng thuật toán Dijkstra trên fused MERA-MST cost (chi phí MERA-MST hợp nhất) có ảnh hưởng của Q-learning;
+
+Cập nhật queue, SoC, reward (phần thưởng) và delay (độ trễ);
+
+Vẽ route của round hiện tại và các metric (chỉ số cơ bản) theo thời gian;
+
+Hiển thị tooltip của node và cho phép xoay topology 3D bằng chuột;
+
+Mỗi lần Reset tự sinh seed (hạt giống) mới để các node phân bố ngẫu nhiên khác nhau;
+
+Lưu snapshot từng round để xem lại trạng thái route/node của round trước.
+
+Ý nghĩa tham số:
+lambda:
+Ưu tiên MERA. Lambda cao hơn sẽ tránh các node pin yếu mạnh mẽ hơn.
+
+gamma:
+Discount factor (hệ số chiết khấu) của Q-learning. Gamma cao hơn nghĩa là coi trọng reward trong tương lai hơn.
+
+communication range:
+Tầm truyền trực tiếp giữa các node. Range cao hơn thì graph sẽ dày đặc hơn.
+
+Ghi chú:
+
+Đây là mô phỏng mang tính giáo dục để quan sát cơ chế hoạt động của từng round. Nó không phải là mô phỏng tầng vật lý/mạng chi tiết như ns-3 hay OMNeT++.
