@@ -20,38 +20,9 @@ Project này tái hiện ở mức gói tin hệ thống trong bài *Energy-Effi
 
 ## Biên dịch
 
-Project được đặt tại `samples/marl_wsn` trong thư mục OMNeT++.
+Project sau khi tại về phải được đặt tại `samples/marl_wsn` trong thư mục OMNeT++.
 
 Trong IDE: chọn **File > Import > General > Existing Projects into Workspace**, trỏ tới `samples/marl_wsn`, sau đó **Build Project** và mở `omnetpp.ini` để bấm **Run**. Metadata `.project`, `.cproject` và `.oppbuildspec` đã có sẵn.
-
-Trong Windows Explorer, chạy `build.cmd`, hoặc trong OMNeT++ Shell:
-
-```sh
-cd "$HOME/samples/marl_wsn"
-opp_makemake -f --deep -o marl_wsn
-make -j4 MODE=release
-```
-
-## Chạy
-
-Mở Qtenv:
-
-```sh
-./marl_wsn.exe -u Qtenv -c MARL
-```
-
-Chạy không giao diện:
-
-```sh
-./marl_wsn.exe -u Cmdenv -c MARL
-./marl_wsn.exe -u Cmdenv -c CloudMARL
-./marl_wsn.exe -u Cmdenv -c SPMH
-./marl_wsn.exe -u Cmdenv -c LEACH
-```
-
-Hoặc chạy `run_all.cmd`. Các file `.vec` và `.sca` được ghi vào thư mục `results`.
-
-Kết quả của lần kiểm thử seed 42 đã được ghi trong `VERIFIED_RESULTS.md`.
 
 ## Các cấu hình
 
