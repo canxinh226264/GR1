@@ -1,0 +1,230 @@
+version 3
+run TableI50Strict-0-20260710-23:17:18-11420
+attr configname TableI50Strict
+attr datetime 20260710-23:17:18
+attr datetimef 20260710-231718
+attr experiment TableI50Strict
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network marlwsn.MarlWsnNetwork
+attr processid 11420
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 42
+config description "Literal Table I values: 50 nodes, 100x100 area, coverage radius 9"
+config extends MARL
+config *.numNodes 50
+config *.controller.communicationRange 9
+config *.controller.placementMode "\"random\""
+config description "Proposed local multi-agent Q-learning with MERA-MST fusion"
+config *.controller.routingMode "\"marl\""
+config *.controller.cloudMode false
+config network marlwsn.MarlWsnNetwork
+config qtenv-default-config MARL
+config sim-time-limit 101s
+config seed-set 42
+config cmdenv-express-mode true
+config cmdenv-status-frequency 10s
+config record-eventlog false
+config output-vector-file results/TableI50Strict-0.vec
+config output-scalar-file results/TableI50Strict-0.sca
+config **.vector-recording true
+config **.scalar-recording true
+config *.numNodes 100
+config *.node[*].initialEnergy 100
+config *.controller.numEpisodes 100
+config *.controller.activeSourcesPerEpisode 4
+config *.controller.areaWidth 100
+config *.controller.areaHeight 100
+config *.controller.areaDepth 0
+config *.controller.communicationRange 18
+config *.controller.placementMode "\"jitteredGrid\""
+config *.controller.initialEnergy 100
+config *.controller.sensingEnergyCost 0.1
+config *.controller.multiHopEnergyCost 2
+config *.controller.sinkEnergyCost 8
+config *.controller.localDecisionEnergyCost 0.05
+config *.controller.packetBits 1024
+config *.controller.bitRate 250kbps
+config *.controller.processingDelay 1ms
+config *.controller.localDecisionDelay 1ms
+config *.controller.cloudDecisionDelay 15ms
+config *.controller.leachSetupDelay 40ms
+config *.controller.episodeLength 1s
+config *.controller.sourceStagger 10ms
+config *.controller.maxHops 10
+config *.controller.minimumSignalIntegrity 0.70
+config *.controller.maxAttenuationPerHop 0.04
+config *.controller.learningRate 0.25
+config *.controller.discountFactor 0.90
+config *.controller.initialEpsilon 0.30
+config *.controller.minimumEpsilon 0.05
+config *.controller.epsilonDecay 0.97
+config *.controller.fusionLambda 0.65
+config *.controller.extraCandidateNeighbors 6
+config *.controller.qWeight 0.025
+config *.controller.hotspotWeight 0.12
+config *.controller.clusterHeadFraction 0.10
+
+par MarlWsnNetwork.controller typename "\"marlwsn.WsnController\""
+par MarlWsnNetwork.controller numEpisodes 100
+par MarlWsnNetwork.controller activeSourcesPerEpisode 4
+par MarlWsnNetwork.controller maxHops 10
+par MarlWsnNetwork.controller extraCandidateNeighbors 6
+par MarlWsnNetwork.controller packetBits 1024
+par MarlWsnNetwork.controller areaWidth 100
+par MarlWsnNetwork.controller areaHeight 100
+par MarlWsnNetwork.controller areaDepth 0
+par MarlWsnNetwork.controller communicationRange 9
+par MarlWsnNetwork.controller initialEnergy 100
+par MarlWsnNetwork.controller sensingEnergyCost 0.1
+par MarlWsnNetwork.controller multiHopEnergyCost 2
+par MarlWsnNetwork.controller sinkEnergyCost 8
+par MarlWsnNetwork.controller localDecisionEnergyCost 0.05
+par MarlWsnNetwork.controller bitRate 250000bps
+attr unit bps
+par MarlWsnNetwork.controller propagationSpeed 3e+08
+par MarlWsnNetwork.controller minimumSignalIntegrity 0.7
+par MarlWsnNetwork.controller maxAttenuationPerHop 0.04
+par MarlWsnNetwork.controller learningRate 0.25
+par MarlWsnNetwork.controller discountFactor 0.9
+par MarlWsnNetwork.controller initialEpsilon 0.3
+par MarlWsnNetwork.controller minimumEpsilon 0.05
+par MarlWsnNetwork.controller epsilonDecay 0.97
+par MarlWsnNetwork.controller fusionLambda 0.65
+par MarlWsnNetwork.controller qWeight 0.025
+par MarlWsnNetwork.controller hotspotWeight 0.12
+par MarlWsnNetwork.controller clusterHeadFraction 0.1
+par MarlWsnNetwork.controller cloudMode false
+par MarlWsnNetwork.controller routingMode "\"marl\""
+par MarlWsnNetwork.controller placementMode "\"random\""
+par MarlWsnNetwork.controller episodeLength 1s
+attr unit s
+par MarlWsnNetwork.controller processingDelay 0.001s
+attr unit s
+par MarlWsnNetwork.controller localDecisionDelay 0.001s
+attr unit s
+par MarlWsnNetwork.controller cloudDecisionDelay 0.015s
+attr unit s
+par MarlWsnNetwork.controller leachSetupDelay 0.04s
+attr unit s
+par MarlWsnNetwork.controller sourceStagger 0.01s
+attr unit s
+scalar MarlWsnNetwork.controller finalMeanSoC 100
+scalar MarlWsnNetwork.controller finalSoCVariance 0
+scalar MarlWsnNetwork.controller finalAliveNodes 50
+scalar MarlWsnNetwork.controller generatedPackets 400
+scalar MarlWsnNetwork.controller deliveredPackets 0
+scalar MarlWsnNetwork.controller droppedPackets 400
+scalar MarlWsnNetwork.controller overallDeliveryRatio 0
+scalar MarlWsnNetwork.controller learnedQStates 0
+scalar MarlWsnNetwork.controller physicalLinks 21
+par MarlWsnNetwork.sink typename "\"marlwsn.WsnSink\""
+par MarlWsnNetwork.node[0] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[0] initialEnergy 100
+par MarlWsnNetwork.node[1] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[1] initialEnergy 100
+par MarlWsnNetwork.node[2] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[2] initialEnergy 100
+par MarlWsnNetwork.node[3] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[3] initialEnergy 100
+par MarlWsnNetwork.node[4] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[4] initialEnergy 100
+par MarlWsnNetwork.node[5] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[5] initialEnergy 100
+par MarlWsnNetwork.node[6] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[6] initialEnergy 100
+par MarlWsnNetwork.node[7] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[7] initialEnergy 100
+par MarlWsnNetwork.node[8] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[8] initialEnergy 100
+par MarlWsnNetwork.node[9] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[9] initialEnergy 100
+par MarlWsnNetwork.node[10] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[10] initialEnergy 100
+par MarlWsnNetwork.node[11] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[11] initialEnergy 100
+par MarlWsnNetwork.node[12] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[12] initialEnergy 100
+par MarlWsnNetwork.node[13] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[13] initialEnergy 100
+par MarlWsnNetwork.node[14] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[14] initialEnergy 100
+par MarlWsnNetwork.node[15] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[15] initialEnergy 100
+par MarlWsnNetwork.node[16] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[16] initialEnergy 100
+par MarlWsnNetwork.node[17] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[17] initialEnergy 100
+par MarlWsnNetwork.node[18] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[18] initialEnergy 100
+par MarlWsnNetwork.node[19] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[19] initialEnergy 100
+par MarlWsnNetwork.node[20] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[20] initialEnergy 100
+par MarlWsnNetwork.node[21] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[21] initialEnergy 100
+par MarlWsnNetwork.node[22] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[22] initialEnergy 100
+par MarlWsnNetwork.node[23] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[23] initialEnergy 100
+par MarlWsnNetwork.node[24] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[24] initialEnergy 100
+par MarlWsnNetwork.node[25] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[25] initialEnergy 100
+par MarlWsnNetwork.node[26] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[26] initialEnergy 100
+par MarlWsnNetwork.node[27] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[27] initialEnergy 100
+par MarlWsnNetwork.node[28] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[28] initialEnergy 100
+par MarlWsnNetwork.node[29] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[29] initialEnergy 100
+par MarlWsnNetwork.node[30] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[30] initialEnergy 100
+par MarlWsnNetwork.node[31] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[31] initialEnergy 100
+par MarlWsnNetwork.node[32] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[32] initialEnergy 100
+par MarlWsnNetwork.node[33] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[33] initialEnergy 100
+par MarlWsnNetwork.node[34] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[34] initialEnergy 100
+par MarlWsnNetwork.node[35] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[35] initialEnergy 100
+par MarlWsnNetwork.node[36] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[36] initialEnergy 100
+par MarlWsnNetwork.node[37] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[37] initialEnergy 100
+par MarlWsnNetwork.node[38] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[38] initialEnergy 100
+par MarlWsnNetwork.node[39] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[39] initialEnergy 100
+par MarlWsnNetwork.node[40] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[40] initialEnergy 100
+par MarlWsnNetwork.node[41] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[41] initialEnergy 100
+par MarlWsnNetwork.node[42] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[42] initialEnergy 100
+par MarlWsnNetwork.node[43] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[43] initialEnergy 100
+par MarlWsnNetwork.node[44] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[44] initialEnergy 100
+par MarlWsnNetwork.node[45] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[45] initialEnergy 100
+par MarlWsnNetwork.node[46] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[46] initialEnergy 100
+par MarlWsnNetwork.node[47] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[47] initialEnergy 100
+par MarlWsnNetwork.node[48] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[48] initialEnergy 100
+par MarlWsnNetwork.node[49] typename "\"marlwsn.SensorNode\""
+par MarlWsnNetwork.node[49] initialEnergy 100
+par MarlWsnNetwork typename "\"marlwsn.MarlWsnNetwork\""
+par MarlWsnNetwork numNodes 50
+

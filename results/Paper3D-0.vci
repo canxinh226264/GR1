@@ -1,0 +1,91 @@
+file 17857 1783700049                                           
+version 3
+run Paper3D-0-20260710-23:14:09-23476
+attr configname Paper3D
+attr datetime 20260710-23:14:09
+attr datetimef 20260710-231409
+attr experiment Paper3D
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network marlwsn.MarlWsnNetwork
+attr processid 23476
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 42
+config description "100-node 10x10x10 scenario from Table II"
+config extends MARL
+config *.controller.areaWidth 10
+config *.controller.areaHeight 10
+config *.controller.areaDepth 10
+config *.controller.communicationRange 3.2
+config description "Proposed local multi-agent Q-learning with MERA-MST fusion"
+config *.controller.routingMode "\"marl\""
+config *.controller.cloudMode false
+config network marlwsn.MarlWsnNetwork
+config qtenv-default-config MARL
+config sim-time-limit 101s
+config seed-set 42
+config cmdenv-express-mode true
+config cmdenv-status-frequency 10s
+config record-eventlog false
+config output-vector-file results/Paper3D-0.vec
+config output-scalar-file results/Paper3D-0.sca
+config **.vector-recording true
+config **.scalar-recording true
+config *.numNodes 100
+config *.node[*].initialEnergy 100
+config *.controller.numEpisodes 100
+config *.controller.activeSourcesPerEpisode 4
+config *.controller.areaWidth 100
+config *.controller.areaHeight 100
+config *.controller.areaDepth 0
+config *.controller.communicationRange 18
+config *.controller.placementMode "\"jitteredGrid\""
+config *.controller.initialEnergy 100
+config *.controller.sensingEnergyCost 0.1
+config *.controller.multiHopEnergyCost 2
+config *.controller.sinkEnergyCost 8
+config *.controller.localDecisionEnergyCost 0.05
+config *.controller.packetBits 1024
+config *.controller.bitRate 250kbps
+config *.controller.processingDelay 1ms
+config *.controller.localDecisionDelay 1ms
+config *.controller.cloudDecisionDelay 15ms
+config *.controller.episodeLength 1s
+config *.controller.sourceStagger 10ms
+config *.controller.maxHops 10
+config *.controller.minimumSignalIntegrity 0.70
+config *.controller.maxAttenuationPerHop 0.04
+config *.controller.learningRate 0.25
+config *.controller.discountFactor 0.90
+config *.controller.initialEpsilon 0.30
+config *.controller.minimumEpsilon 0.05
+config *.controller.epsilonDecay 0.97
+config *.controller.fusionLambda 0.65
+config *.controller.extraCandidateNeighbors 6
+config *.controller.qWeight 0.025
+config *.controller.hotspotWeight 0.12
+config *.controller.clusterHeadFraction 0.10
+
+vector 0 MarlWsnNetwork.controller meanSoC ETV
+vector 1 MarlWsnNetwork.controller SoCVariance ETV
+vector 2 MarlWsnNetwork.controller aliveNodes ETV
+vector 3 MarlWsnNetwork.controller deliveryRatio ETV
+vector 4 MarlWsnNetwork.controller meanEndToEndDelay ETV
+vector 5 MarlWsnNetwork.controller meanHopCount ETV
+vector 6 MarlWsnNetwork.controller totalReward ETV
+vector 7 MarlWsnNetwork.controller epsilon ETV
+0	3010 1789 25 2210 1 100 100 40.7655 99.3685 6987.266 516926.247161
+1	4799 2641 25 2210 1 100 100 10.594326010101 142.88309570707 9011.4794838384 915462.47269814
+2	7440 1445 25 2210 1 100 100 100 100 10000 1000000
+3	8885 1245 25 2210 1 100 100 1 1 100 100
+4	10130 2663 25 2210 1 100 100 0.02878802795925 0.050446080109 3.8280830282258 0.14803360711114
+5	12793 1452 25 2210 1 100 100 2.5 6.75 427.25 1878.9375
+6	14245 1386 25 2210 1 100 100 73 186 10305 1106701
+7	15631 2224 25 2210 1 100 100 0.05 0.3 10.392199288437 1.5834903066103
+
