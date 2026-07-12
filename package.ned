@@ -1,0 +1,3 @@
+package marlwsn;
+
+@namespace(marlwsn);
