@@ -49,3 +49,5 @@ Trong IDE, mở Result Analysis và nạp thư mục `results`. Có thể xuất
 opp_scavetool x results/MARL-0.vec -o results/MARL-vectors.csv -F CSV-R
 opp_scavetool x results/MARL-0.sca -o results/MARL-scalars.csv -F CSV-R
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fe14db8f-abf5-4749-9eac-d5f9e2805acc" />
+
